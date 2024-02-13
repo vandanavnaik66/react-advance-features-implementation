@@ -1,0 +1,12 @@
+/* Links can be styled with any CSS property (e.g. color, font-family, background, etc.).
+we will use 'a' for link to style
+*/
+/* we are giving global styling here for all the links or else directly in child component we can give styling to link but use 'a' don't use li where link has put */
+
+a{
+    text-decoration: none;
+    font-family: sans-serif;
+
+    color: inherit; 
+    /* When you set inherit on a CSS property, the property in child component takes the value from the element’s parent. */
+}

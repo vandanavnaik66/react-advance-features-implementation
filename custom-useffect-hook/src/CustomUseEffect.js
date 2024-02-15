@@ -7,13 +7,20 @@ export const CustomUseEffect = (callBackFun,dep) => {
 
     if(firstRender.current){
         firstRender.current=false;
-        callBackFun();
+       const cleanup= callBackFun();
+        if(cleanup && typeof cleanup ==='function'){
+            cleanup();
+        }
     }
 
    const depChanged = dep? JSON.stringify(dep)!== JSON.stringify(preDependency.current) : true;
 
 if(depChanged){
-    callBackFun();
+    const cleanup= callBackFun();
+
+        if(cleanup && typeof cleanup ==='function' && dep){
+            cleanup();
+        }
 }
 
 preDependency.current=dep||[]

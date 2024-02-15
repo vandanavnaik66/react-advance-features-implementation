@@ -20,6 +20,9 @@ setState(pre=>pre-1)
   console.log("outside the useEffect render!!")
 CustomUseEffect(()=>{
 console.log("inside the useEffect")
+
+return ()=>{ console.log("clean up function")}
+
 },[])
 
   return (

@@ -1,19 +1,32 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
+
+
 
 export const cartContext=createContext();
-// 1. create context
-// 2. provide that created context
-//  3. wrap all the child component inside the provider , below children props takes all child component and render inside children
-// 4. go to root file index.js and wrap the app component inside the Context, because context componet returning provider and values
-// 5. define useContext() it will take argument of context which you have created cartContext and that will return values what you have passed
-
+export const themeContext=createContext();
 
 
 export const Context = ({children}) => {
+
 const[cart,setCart]=useState([])
+
+const[isDarkMode,setIsDarkMode] =useState(true);
+const theme= isDarkMode? "dark" : "light";
+
+const toggleTheme=()=>{
+  console.log("clicked")
+  setIsDarkMode(prevState=>!prevState)
+}
+
+useEffect(()=>{
+   document.documentElement.setAttribute("data-theme", theme)  /* set attribute is like giving id or className to html elements, inside the document what all the elements are there for those setting attribute so that change the color, this we can check inside inspect->element-->inside html tag you can see data-theme="dark"  */
+},[isDarkMode])
+
   return (
     <cartContext.Provider value={{cart,setCart}}>
-     {children}     
+      <themeContext.Provider value={{theme,toggleTheme}}>
+     {children}    
+     </themeContext.Provider>
     </cartContext.Provider>
   )
 }

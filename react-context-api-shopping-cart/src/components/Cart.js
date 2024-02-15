@@ -16,6 +16,7 @@ const{cart,setCart}=useContext(cartContext);
         )}
       </div>
 
+
     </div>
   )
 }

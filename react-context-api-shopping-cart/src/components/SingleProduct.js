@@ -1,6 +1,10 @@
 import React, { useContext } from "react";
 import {cartContext} from "../Context"
+
+
+
 export const SingleProduct = ({product}) => {
+
   const {cart,setCart}=useContext(cartContext)
 
   return (
@@ -8,7 +12,7 @@ export const SingleProduct = ({product}) => {
       <img src="product.image" alt="img" />
       <div className="single-prod-name">
         <span>{product.name}</span>
-        <span>{product.price}</span>
+        <span> ₹ {product.price.substring(0,3)}</span>
       </div>
       {cart.includes(product) ? (
         <button

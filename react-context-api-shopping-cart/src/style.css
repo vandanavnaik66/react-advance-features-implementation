@@ -1,3 +1,20 @@
+[data-theme="dark"]{
+    --bg-color:#333333;
+    --text-color : #ffffff;
+    --heading-color: #ffffff;
+  
+}
+[data-theme="light"]{
+    --bg-color: #ffffff;
+    --text-color : #333333;
+    --heading-color: #444444;
+    
+}
+
+body{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
 .header{
     display: block;
     text-align: center;  /* if you directly*/
@@ -11,13 +28,22 @@
 .nav{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     height: 50px;
-    background-color: black;
+    gap:60px;
+    background-color: var(--text-color);
     list-style: none;
 }
-.nav li {
-color: white; 
+.nav ul{
+    margin-left: 50px;
+}
+.nav-items{
+    width: 15%;
+display: flex;
+justify-content: space-between;
+}
+.nav-items li {
+color: var(--bg-color); 
 font-size: 20px;
 /* in parent for all  link globally  color:inherit given, so here you can give color to <li> otherwise it won't take you should use 'a' while styling link
 a{
@@ -25,8 +51,59 @@ a{
     color: white;
 }*/
 }
+.switch-mode {
+    display: flex;
+}
+.slider{
+    /* position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 20px; */
+    width: 60px;
+    height: 30px;
+    background-color: lightblue;
+    border-radius: 20px;
+    margin-right: 50px;
+    position: relative;
+    transition: 0.2s;
+}
+.slider::before{
+position: absolute;
+content: '';   /* content is very important to give otherwise that won't work*/
+width: 25px ;
+height: 25px;
+border-radius: 50%;
+margin-top: 3px;
+margin-left: 3px;
+background-color: rgb(220, 213, 213);
+transition: 0.2s;
+}
+ .switch-mode input:checked + .slider{
+    background-color: #20aeeb;
+}
+
+.switch-mode .slider::before{
+    /* position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left:2px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;   */
+}
+.switch-mode input:checked + .slider::before{
+transform: translateX(30px);
+}
+
 .nav li:hover{
-    color:rgb(5, 146, 26);
+    color:rgb(14, 212, 43);
 }
 .product-container{
     margin: 0px 30px;
@@ -39,6 +116,8 @@ a{
  width: 15%;
  padding: 4px;
  box-shadow: 0 0 9px rgb(173, 169, 169);
+ background-color: var(--bg-color);
+ color: var(--tex-color);
 }
 .single-product-container img{
     width: 100%;

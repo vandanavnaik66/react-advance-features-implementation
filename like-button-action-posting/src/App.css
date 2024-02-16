@@ -1,0 +1,31 @@
+:root{
+  --text-color:rgb(177, 174, 174);
+  --active-color:red ;
+}
+
+.like-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:4px;
+  padding:5px 7px;
+  font-size: 15px;
+  font-weight: 700;
+  background-color: white;
+  border-radius: 35px;
+  border:1.8px solid   var( --text-color);
+  color: var(--text-color);
+}
+.like-btn:hover{
+  border:1.8px solid var(--active-color);
+  color: var(--active-color);
+}
+.liked, .liked:hover{
+  background-color: var(--active-color);
+  border: 1.8px solid var(--active-color);
+  color: white;
+}
+.App h4{
+font-family: sans-serif;
+}
+

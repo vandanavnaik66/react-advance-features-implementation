@@ -1,8 +1,11 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { productContex } from "./Context";
+import {Link, useParams} from 'react-router-dom'
 
 function App() {
-  const [product, setProduct] = useState();
+  const{product,setProduct}=useContext(productContex)
+
 const[page,setPage]=useState(1)
 
   const fetchProduct = () => {
@@ -41,11 +44,12 @@ const[page,setPage]=useState(1)
   <div >
     {
 product?.length >0 && 
-<div className="grid-container" >
+<div className="grid-container">
   {
     product.slice((page*10-10),page*10).map((prod)=>{
-      return<div className="single-container">
-           <img src={prod.thumbnail}/>
+      return<div className="single-container" key={prod.id}>
+         <Link to={`/singleItem/${prod.id}`} className="link"> <img src={prod.thumbnail}/>
+         </Link>  
            <span>{prod.title}</span>
       </div>
     })

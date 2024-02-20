@@ -1,0 +1,32 @@
+*{
+  font-family: sans-serif;
+}
+
+.App{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.form-style p{
+  text-align: center;
+}
+.form-style input{
+  padding: 6px;
+  width: 250px;
+  margin-right:5px;
+}
+.form-style button{
+  padding: 5px 8px;
+}
+
+.otp-field-container{
+ display: flex; 
+ justify-content: center;
+}
+.otp-field-container input{
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  font-size: 1.5rem;
+  text-align: center;
+}

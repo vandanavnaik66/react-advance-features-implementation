@@ -1,0 +1,29 @@
+.App{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title{
+  margin-top: 25px;
+  margin-bottom: 13px;
+}
+.progess-container{
+  width: 450px;
+  height: 20px;
+  border: 2px solid rgb(174, 173, 173);
+  border-radius: 85px;
+   position: relative;
+   background-color:rgb(174, 173, 173) ;
+   overflow: hidden;
+}
+.progess-container span{
+width: 100%;
+display: flex;
+justify-content: center;
+position: absolute;
+z-index: 2;
+}
+.progess-container div{
+  height: 100%;
+  background-color: green;
+}
